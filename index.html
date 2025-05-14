@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="calculator-container">
+        <h1 class="calculator-title">آلة حاسبة</h1>
+        
+        <!-- الآلة الحاسبة الأساسية -->
+        <div class="calculator">
+            <div class="display">
+                <div class="previous-operand" id="previous-operand"></div>
+                <div class="current-operand" id="current-operand">0</div>
+            </div>
+            <button class="span-two" onclick="clearAll()">AC</button>
+            <button onclick="deleteNumber()">DEL</button>
+            <button class="operator" onclick="appendOperator('÷')">÷</button>
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button class="operator" onclick="appendOperator('×')">×</button>
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            <button class="operator" onclick="appendOperator('-')">-</button>
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button class="operator" onclick="appendOperator('+')">+</button>
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="appendNumber('.')">.</button>
+            <button class="span-two equals" onclick="calculate()">=</button>
+        </div>
+        
+        <!-- محول العملات -->
+        <div class="currency-converter">
+            <h2>محول العملات</h2>
+            <div class="converter-container">
+                <div class="converter-input">
+                    <input type="number" id="amount" placeholder="المبلغ" value="1">
+                    <select id="from-currency">
+                        <option value="USD">دولار أمريكي (USD)</option>
+                        <option value="EUR">يورو (EUR)</option>
+                        <option value="GBP">جنيه إسترليني (GBP)</option>
+                        <option value="JPY">ين ياباني (JPY)</option>
+                        <option value="SAR">ريال سعودي (SAR)</option>
+                        <option value="AED">درهم إماراتي (AED)</option>
+                        <option value="EGP">جنيه مصري (EGP)</option>
+                        <option value="KWD">دينار كويتي (KWD)</option>
+                        <option value="QAR">ريال قطري (QAR)</option>
+                        <option value="BHD">دينار بحريني (BHD)</option>
+                        <option value="OMR">ريال عماني (OMR)</option>
+                        <option value="JOD">دينار أردني (JOD)</option>
+                        <option value="LBP">ليرة لبنانية (LBP)</option>
+                        <option value="TRY">ليرة تركية (TRY)</option>
+                        <option value="CAD">دولار كندي (CAD)</option>
+                        <option value="AUD">دولار أسترالي (AUD)</option>
+                        <option value="CHF">فرنك سويسري (CHF)</option>
+                        <option value="CNY">يوان صيني (CNY)</option>
+                    </select>
+                </div>
+                <div class="converter-arrow">⇄</div>
+                <div class="converter-input">
+                    <input type="number" id="result" placeholder="النتيجة" readonly>
+                    <select id="to-currency">
+                        <option value="EGP">جنيه مصري (EGP)</option>
+                        <option value="USD">دولار أمريكي (USD)</option>
+                        <option value="EUR">يورو (EUR)</option>
+                        <option value="GBP">جنيه إسترليني (GBP)</option>
+                        <option value="JPY">ين ياباني (JPY)</option>
+                        <option value="SAR">ريال سعودي (SAR)</option>
+                        <option value="AED">درهم إماراتي (AED)</option>
+                        <option value="KWD">دينار كويتي (KWD)</option>
+                        <option value="QAR">ريال قطري (QAR)</option>
+                        <option value="BHD">دينار بحريني (BHD)</option>
+                        <option value="OMR">ريال عماني (OMR)</option>
+                        <option value="JOD">دينار أردني (JOD)</option>
+                        <option value="LBP">ليرة لبنانية (LBP)</option>
+                        <option value="TRY">ليرة تركية (TRY)</option>
+                        <option value="CAD">دولار كندي (CAD)</option>
+                        <option value="AUD">دولار أسترالي (AUD)</option>
+                        <option value="CHF">فرنك سويسري (CHF)</option>
+                        <option value="CNY">يوان صيني (CNY)</option>
+                    </select>
+                </div>
+            </div>
+            <button id="convert-btn" onclick="convertCurrency()">تحويل</button>
+            <button id="swap-btn" onclick="swapCurrencies()">تبديل العملات</button>
+        </div>
+        
+        <!-- حقوق الموقع وزر تغيير المظهر -->
+        <div class="theme-toggle">
+            <button id="theme-button" onclick="toggleTheme()">تغيير المظهر</button>
+        </div>
+        
+        <div class="copyright">
+            &copy; <span id="year"></span> AZMY EHAB | جميع الحقوق محفوظة
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
